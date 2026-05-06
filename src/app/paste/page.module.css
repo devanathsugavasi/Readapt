@@ -1,0 +1,110 @@
+.page {
+  min-height: 100vh;
+  background: var(--bg-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.inner {
+  max-width: 760px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.logoIcon {
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  color: var(--text-primary);
+}
+
+.sub {
+  color: var(--text-secondary);
+  font-size: var(--text-md);
+}
+
+.presetRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.presetBtn {
+  padding: 8px 14px;
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  background: var(--bg-elevated);
+}
+
+.presetBtnActive {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  background: var(--accent-subtle);
+}
+
+.textarea {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--bg-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  font-family: 'Literata', Georgia, serif;
+  font-size: 17px;
+  color: var(--text-primary);
+  line-height: 1.7;
+  resize: vertical;
+  min-height: 260px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.wordCount {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.wordHint {
+  color: var(--warning);
+}
+
+.buttonRow {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btnDisabled {
+  opacity: 0.4;
+}
+
+.note {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  text-align: center;
+}

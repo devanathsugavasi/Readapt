@@ -1,0 +1,172 @@
+/* ── Full-screen dark overlay ────────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(8, 8, 12, 0.65);
+  pointer-events: none;
+  animation: overlayIn 280ms ease both;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Spotlight — transparent cutout on top of the overlay ───── */
+/* Uses a mix-blend-mode trick: this white rectangle on a dark overlay
+   creates a "hole" effect without box-shadow clipping issues.          */
+.spotlight {
+  position: fixed;
+  z-index: 201;
+  border-radius: 10px;
+  pointer-events: none;
+  /* Ring highlight around the target */
+  outline: 2.5px solid rgba(200, 169, 110, 0.6);
+  outline-offset: 0px;
+  /* Transparent so the underlying element shows through the overlay */
+  background: transparent;
+  /* Punch through the overlay using isolation + compositing trick */
+  box-shadow:
+    0 0 0 9999px rgba(8, 8, 12, 0.65),  /* re-dark everything outside */
+    0 0 0 3px rgba(200, 169, 110, 0.25); /* subtle inner glow */
+  /* Negative box-shadow spread would clip, so we use a different approach:
+     The overlay is semi-transparent, the spotlight punches through by
+     having a higher z-index and transparent bg so the element below is
+     more visible.                                                        */
+  transition: all 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── Tooltip card ─────────────────────────────────────────────── */
+.tooltip {
+  position: fixed;
+  z-index: 202;
+  background: var(--bg-surface, #1a1a1e);
+  border: 1.5px solid rgba(200, 169, 110, 0.4);
+  border-radius: 14px;
+  padding: 20px 20px 16px;
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  pointer-events: all;
+  animation: tipIn 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes tipIn {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ── Arrow ────────────────────────────────────────────────────── */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: var(--bg-surface, #1a1a1e);
+  border: 1.5px solid rgba(200, 169, 110, 0.4);
+  transform: rotate(45deg);
+}
+
+/* Arrow pointing up (tooltip is below target) */
+.tooltip[data-arrow="top"]::before {
+  top: -7px;
+  left: 50%;
+  margin-left: -6px;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Arrow pointing down (tooltip is above target) */
+.tooltip[data-arrow="bottom"]::before {
+  bottom: -7px;
+  left: 50%;
+  margin-left: -6px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Arrow pointing left (tooltip is to the right) */
+.tooltip[data-arrow="left"]::before {
+  left: -7px;
+  top: 50%;
+  margin-top: -6px;
+  border-right: none;
+  border-top: none;
+}
+
+/* Arrow pointing right (tooltip is to the left) */
+.tooltip[data-arrow="right"]::before {
+  right: -7px;
+  top: 50%;
+  margin-top: -6px;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* No arrow (center placement) */
+.tooltip[data-arrow="none"]::before {
+  display: none;
+}
+
+/* ── Content ─────────────────────────────────────────────────── */
+.tooltipTitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #C8A96E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.tooltipText {
+  font-size: 14px;
+  color: rgba(240, 237, 234, 0.85);
+  line-height: 1.55;
+  margin: 0 0 16px;
+}
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.tooltipFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.progress {
+  font-size: 12px;
+  color: rgba(200, 169, 110, 0.7);
+  font-variant-numeric: tabular-nums;
+}
+
+.tooltipBtns {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.skipBtn {
+  all: unset;
+  font-size: 12px;
+  color: rgba(240, 237, 234, 0.45);
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 120ms;
+}
+.skipBtn:hover { color: rgba(240, 237, 234, 0.75); }
+
+.nextBtn {
+  all: unset;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0D0D0F;
+  background: #C8A96E;
+  padding: 7px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 120ms, transform 80ms;
+}
+.nextBtn:hover { opacity: 0.88; }
+.nextBtn:active { transform: scale(0.97); }

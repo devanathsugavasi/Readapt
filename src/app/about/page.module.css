@@ -1,0 +1,148 @@
+.page { background: var(--bg-base); min-height: 100vh; }
+
+.loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+  background: var(--bg-base);
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 24px 100px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.eyebrow {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.sub {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.section {
+  border-top: 1px solid var(--bg-border);
+  padding-top: 40px;
+}
+
+.section p {
+  font-family: var(--font-reading);
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+
+/* Inline demo */
+.demoBox {
+  background: var(--bg-elevated);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  margin: 28px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.demoRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demoTag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.demoNormal {
+  font-family: 'Literata', Georgia, serif;
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.demoBionic {
+  font-family: 'Literata', Georgia, serif;
+  font-size: 17px;
+  color: var(--text-primary);
+  line-height: 1.9;
+  letter-spacing: 0.015em;
+}
+
+.disclaimer {
+  background: var(--bg-surface);
+  border: 1px solid var(--bg-border);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  border-top: 1px solid var(--bg-border) !important;
+}
+
+.disclaimer .sectionTitle {
+  color: var(--warning);
+}
+
+.cta {
+  text-align: center;
+  padding: 80px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.cta p {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}

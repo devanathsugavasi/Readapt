@@ -1,0 +1,189 @@
+.page {
+  min-height: 100vh;
+  background: var(--bg-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.quizHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  border-bottom: 1px solid var(--bg-border);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.brandIcon {
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.24);
+}
+
+.main {
+  flex: 1;
+  max-width: 580px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.progressRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.questionNum {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.questionBlock {
+  margin-bottom: 40px;
+}
+
+.slideIn {
+  animation: slideIn 280ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.slideOut {
+  animation: slideOut 180ms cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideOut {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-40px); }
+}
+
+.question {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--bg-border);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: all 120ms var(--ease-spring);
+  text-align: left;
+}
+
+.option:hover {
+  background: var(--accent-subtle);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.optionSelected {
+  background: var(--accent-subtle);
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.optionRadio {
+  font-size: 16px;
+  color: var(--accent);
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.optionLabel {
+  font-weight: 500;
+}
+
+.navRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 32px;
+}
+
+.backBtn {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.nextBtn {
+  animation: fadeUp 200ms var(--ease-out-expo) both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Calculating screen */
+.calculating {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: var(--bg-base);
+}
+
+.calcBrand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.calcLogo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calcText {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+}
+
+.calcSpinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--bg-border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 600ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

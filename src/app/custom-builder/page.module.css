@@ -1,0 +1,113 @@
+.page {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.header {
+  max-width: 1280px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backLink {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 36px;
+}
+
+.layout {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 22px;
+}
+
+.controls,
+.preview {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.controls h2,
+.preview h2 {
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.controls input[type='range'],
+.controls select {
+  width: 100%;
+}
+
+.colorRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.resetBtn,
+.applyBtn {
+  border: 1px solid var(--bg-border);
+  border-radius: 999px;
+  padding: 10px 14px;
+  color: var(--text-primary);
+}
+
+.applyBtn {
+  background: var(--accent);
+  color: #0D0D0F;
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.previewCanvas {
+  position: relative;
+  min-height: 280px;
+  padding: 16px 8px;
+}
+
+.previewFocusLine {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 42%;
+  height: 56px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
